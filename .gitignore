@@ -1,2 +1,3 @@
 *.example
 a.out
+.DS_Store
