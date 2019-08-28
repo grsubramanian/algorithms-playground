@@ -21,17 +21,13 @@ class Solution(object):
                 while j < N and nums[j] != 0:
                     j += 1
                 k = leading_nonzeroes_count
-                if trailing_zeroes_count >= (j - i):
-                    # 1] swap
-                    for l in xrange(i, j):
-                        self.swap(nums, k + l - i, l)
-                else:
-                    # 1] left shift
-                    for l in xrange(i, j):
-                        nums[k + l - i] = nums[l]
-                    # 2] overwrite with zero
-                    for l in xrange(j - trailing_zeroes_count, j):
-                        nums[l] = 0
+                # 1] left shift
+                for l in xrange(i, j):
+                    nums[k + l - i] = nums[l]
+                # 2] overwrite with zero
+                for l in xrange(j - min(trailing_zeroes_count, j - i), j):
+                    nums[l] = 0
+
                 leading_nonzeroes_count += (j - i)
                 i = j
 
