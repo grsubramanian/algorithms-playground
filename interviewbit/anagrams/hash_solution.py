@@ -14,7 +14,4 @@ class Solution:
             else:
                 memo[th] = [i + 1]
         
-        out = []
-        for th, i_list in memo.items():
-            out.append(i_list)
-        return out
+        return list(memo.values())
